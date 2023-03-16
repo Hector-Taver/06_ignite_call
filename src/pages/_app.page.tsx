@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app'
 import { Roboto } from 'next/font/google'
 
 import { globalStyles } from '@/styles/global'
+import Head from 'next/head'
 
 const roboto = Roboto({
   weight: ['400', '500', '700'],
@@ -12,5 +13,13 @@ const roboto = Roboto({
 globalStyles()
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Head>
+        <link rel="icon" href="/logo.svg" />
+        <title>Ignite Call</title>
+      </Head>
+      <Component {...pageProps} />
+    </>
+  )
 }
