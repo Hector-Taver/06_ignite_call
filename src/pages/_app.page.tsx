@@ -19,7 +19,10 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/logo.svg" />
         <title>Ignite Call</title>
       </Head>
-      <Component {...pageProps} />
+
+      <main className={roboto.className}>
+        <Component {...pageProps} />
+      </main>
     </>
   )
 }
