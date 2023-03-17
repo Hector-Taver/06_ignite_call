@@ -26,10 +26,11 @@ O Ignite Call é uma aplicação de agendamento, onde você poderá conectar seu
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - Next.js
-- Google OAuth
 - Prisma
 - Zod
 - React Hook Form
+- Nookies
+- Google OAuth
 - React Query
 - Banco de dados MySQL
 

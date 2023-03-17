@@ -8,6 +8,7 @@ import { Container, Form, FormError, Header } from './styles'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { api } from '@/lib/axios'
+import { AxiosError } from 'axios'
 
 const registerFormSchema = z.object({
   username: z
@@ -49,6 +50,11 @@ export default function Register() {
         username: data.username,
       })
     } catch (error) {
+      if (error instanceof AxiosError && error?.response?.data?.message) {
+        alert(error.response.data.message)
+        return
+      }
+
       console.error(error)
     }
   }
@@ -71,6 +77,7 @@ export default function Register() {
           <TextInput
             prefix="ignite.com/"
             placeholder="seu-usuario"
+            autoComplete="off"
             {...register('username')}
           />
 
@@ -81,7 +88,11 @@ export default function Register() {
 
         <label>
           <Text size="sm">Nome completo</Text>
-          <TextInput placeholder="Seu nome" {...register('name')} />
+          <TextInput
+            placeholder="Seu nome"
+            autoComplete="off"
+            {...register('name')}
+          />
 
           {errors.name && (
             <FormError size="sm">{errors.name.message}</FormError>
