@@ -9,7 +9,7 @@ import { Form, FormAnnotation } from './styles'
 const claimUsernameFormSchema = z.object({
   username: z
     .string()
-    .min(3, { message: 'O usuário precisa ter pelo menos 3 letras.' })
+    .min(2, { message: 'O usuário precisa ter pelo menos 2 letras.' })
     .regex(/^([a-z\\-]+)$/i, {
       message: 'O usuário pode ter apenas letras e hifens.',
     })
