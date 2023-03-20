@@ -31,6 +31,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - React Hook Form
 - Nookies
 - Google OAuth
+- Next Auth
 - React Query
 - Banco de dados MySQL
 
