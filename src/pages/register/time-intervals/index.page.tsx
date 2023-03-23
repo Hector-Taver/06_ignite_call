@@ -1,5 +1,7 @@
-import { Controller, useFieldArray, useForm } from 'react-hook-form'
+import { useRouter } from 'next/router'
 import { ArrowRight } from 'phosphor-react'
+import { Controller, useFieldArray, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import {
   Button,
@@ -10,6 +12,10 @@ import {
   TextInput,
 } from '@ignite-ui/react'
 
+import { api } from '@/lib/axios'
+import { getWeekDays } from '@/utils/get-week-days'
+import { convertTimeStringToMinutes } from '@/utils/convert-time-string-to-minutes'
+
 import { Container, Header } from '../styles'
 import {
   FormError,
@@ -19,10 +25,6 @@ import {
   IntervalInputs,
   IntervalItem,
 } from './styles'
-import { getWeekDays } from '@/utils/get-week-days'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { convertTimeStringToMinutes } from '@/utils/convert-time-string-to-minutes'
-import { api } from '@/lib/axios'
 
 const timeIntervalsFormSchema = z.object({
   intervals: z
@@ -87,6 +89,8 @@ export default function TimeIntervals() {
     },
   })
 
+  const router = useRouter()
+
   const weekDays = getWeekDays()
 
   const { fields } = useFieldArray({
@@ -100,6 +104,8 @@ export default function TimeIntervals() {
     const { intervals } = data as TimeIntervalsFormOutput
 
     await api.post('/users/time-intervals', { intervals })
+
+    await router.push('/register/update-profile')
   }
 
   return (
