@@ -19,7 +19,7 @@
 
 ## 💻 Projeto
 
-O Ignite Call é uma aplicação de agendamento, onde você poderá conectar seu calendário e permitir que as pessoas agendem horários com você sem seu tempo livre.
+O Ignite Call é uma aplicação de agendamentos, onde você poderá conectar seu Google Calendar e permitir que as pessoas agendem horários com você em seu tempo livre.
 
 ## ✨ Tecnologias
 
